@@ -33,7 +33,7 @@ const Header = () => {
         <div className="flex gap-x-2 md:gap-x-4">
           <Link
             to="/upload"
-            className="font-semibold text-sm md:text-base bg-gradient-to-tl py-1 md:py-2 px-2 md:px-3 from-[#00BDCC] to-[#4CE859] rounded-sm text-center leading-4"
+            className="font-semibold text-sm md:text-base py-1 md:py-2 px-2 md:px-3  rounded-sm text-center bg-[#00BDCC] hover:bg-[#00BDAA] leading-4"
           >
             Upload images
           </Link>
