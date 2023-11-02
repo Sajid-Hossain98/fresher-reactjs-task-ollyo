@@ -15,11 +15,12 @@ const Header = () => {
       <nav className="flex items-center justify-between gap-x-2 h-20 md:h-10 border-b border-b-gray-800/30 px-4 py-2 md:px-10 md:py-8">
         <div>
           {selectedImages.length > 0 ? (
-            <span className="flex items-center gap-x-2 md:gap-x-3 font-medium text-xl leading-5 sm:leading-normal">
+            <span className="flex items-center gap-x-2 md:gap-x-3 font-medium text-sm md:text-xl leading-4 sm:leading-normal">
               <input
                 type="checkbox"
                 className="h-5 w-5 hover:bg-transparent"
                 checked
+                readOnly
               />
               {`${selectedImages.length} ${
                 selectedImages.length > 1 ? "Files" : "File" //based on the length of selected files

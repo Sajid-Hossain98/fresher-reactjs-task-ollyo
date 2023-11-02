@@ -23,7 +23,7 @@ const ImageUpload = () => {
       //if user selected any file/files then storing those files
       const selectedImage = e.target.files;
 
-      //updating the state with the files that were selected by the user
+      //Updating the state with the files that were selected by the user
       setImagesToUpload(selectedImage);
 
       //To preview the files that the user selected
@@ -37,34 +37,35 @@ const ImageUpload = () => {
 
   //function to handle the image upload
   const uploadImage = async (e: FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); //Prevents default form submission
 
     try {
-      const imageUrls: string[] = [];
+      const imageUrls: string[] = []; //Array to store URLs of uploaded images
 
       if (imagesToUpload) {
         setIsLoading(true);
 
         for (let i = 0; i < imagesToUpload.length; i++) {
-          const formData = new FormData();
-          formData.append("file", imagesToUpload[i]);
-          formData.append("cloud_name", cloud_name);
-          formData.append("upload_preset", upload_preset);
+          const formData = new FormData(); //Creates a new form data object
+          formData.append("file", imagesToUpload[i]); //Appends the image file
+          formData.append("cloud_name", cloud_name); //Appends cloudinary cloud name
+          formData.append("upload_preset", upload_preset); //Appends the cloudinary upload preset
 
+          //Sends a POST request to cloudinary's API to upload image
           const res = await axios.post(
             `https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`,
             formData
           );
 
-          const imageUrl = res.data.url;
-          imageUrls.push(imageUrl);
+          const imageUrl = res.data.url; //Retrieves the URL of the uploaded image/images
+          imageUrls.push(imageUrl); //Adds the URL to the array of uploaded image
 
-          dispatch(addImage(imageUrl));
+          dispatch(addImage(imageUrl)); //Dispatches an action to add the image URL to the state
         }
 
         setIsLoading(false);
-        setImagesToUpload(null);
-        setPreviewImages([]);
+        setImagesToUpload(null); //resetting the imagesToUpload state
+        setPreviewImages([]); //resetting the previewImages state
         toast.success("Uploaded successfully.");
       } else {
         toast.error("Please select image first."); //if no images are selected to upload then this block will run
@@ -94,7 +95,7 @@ const ImageUpload = () => {
           <FileImage className="mb-2 text-[#263d3f]" />
           {previewImages.length > 0 ? (
             <p>{`${previewImages.length} ${
-              previewImages.length > 1 ? "images" : "image"
+              previewImages.length > 1 ? "images" : "image" //based on the length of selected image file
             } selected!`}</p>
           ) : (
             <p>Select images</p>
@@ -125,14 +126,14 @@ const ImageUpload = () => {
         </button>
       </form>
 
-      <div className="grid place-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 px-4 pb-4">
+      <div className="grid place-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-2 px-4 md:px-10 pb-4">
         {previewImages &&
           previewImages.map((image, index) => (
             <img
               key={index}
               src={image}
-              alt="adding image"
-              className="h-[150px] md:h-[250px] md:w-[250px] w-[200px] mt-6 md:mt-10 border-2 border-dashed border-x-gray-300 rounded-md"
+              alt="selected image"
+              className="h-[150px] md:h-[250px] md:w-[250px] w-[150px] mt-6 md:mt-10 border-2 border-dashed border-x-gray-300 rounded-md"
             />
           ))}
       </div>

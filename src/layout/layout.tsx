@@ -15,6 +15,7 @@ const Layout = () => {
       <div className="h-[85vh] md:h-[80vh] w-[95vw] md:w-[85vw] lg:w-[70vw] bg-gray-100 rounded-lg overflow-y-auto scrollbar-w-2 scrollbar-thumb scrollbar-track">
         <Header />
 
+        {/* to render the child routes */}
         <Outlet />
       </div>
     </main>

@@ -52,10 +52,15 @@ const imageSlice = createSlice({
         (image) => !selectedIds.includes(image.id) //now the images array will be only those images that were not selected and deleted
       );
     },
+
+    //to update the image array with new reordered image array
+    moveImage: (state, action) => {
+      state.images = action.payload;
+    },
   },
 });
 
-export const { addImage, toggleImageSelection, deleteSelected } =
+export const { addImage, toggleImageSelection, deleteSelected, moveImage } =
   imageSlice.actions;
 
 export const selectImages = (state: RootState) => state.images;
