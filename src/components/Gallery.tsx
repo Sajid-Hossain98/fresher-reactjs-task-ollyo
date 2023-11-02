@@ -25,12 +25,12 @@ const Gallery = () => {
 
   return (
     <>
-      <SortableList onSortEnd={onSortEnd} draggedItemClassName="">
+      <SortableList onSortEnd={onSortEnd} draggedItemClassName="z-50">
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5 lg:gap-8 px-4 md:px-10 py-2 md:py-8">
           {images.length > 0 ? (
             images.map((image) => (
               <SortableItem key={image.id}>
-                <li className="relative sm:first:col-span-2 sm:first:row-span-2">
+                <li className="relative sm:first:col-span-2 sm:first:row-span-2 list-none">
                   {/* clicking on any image will select that image */}
                   <label>
                     <input
