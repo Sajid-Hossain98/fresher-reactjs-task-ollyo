@@ -1,6 +1,6 @@
 # Hello!
 
-Hi! My name is B M Sajid Hossain. And I have applied to Ollyo for the post of Fresher React JS Developer. I have done the assessment task given. Some details about what I have done so far.
+Hi! My name is B M Sajid Hossain. And I have applied to Ollyo for the post of Fresher React JS Developer. I have completed the given assessment task. Some details about what I have done so far.
 
 ## What I've Done
 
