@@ -64,12 +64,26 @@ const Gallery = () => {
               </SortableItem>
             ))
           ) : (
-            <Link
-              to="/upload"
-              className="font-semibold text-sm md:text-base py-1 md:py-2 px-2 md:px-3  rounded-sm text-center bg-[#00BDCC] hover:bg-[#00BDAA] leading-4"
-            >
-              Upload images
-            </Link>
+            <div className="">
+              <Link
+                to="/upload"
+                className="font-semibold text-sm md:text-base py-1 md:py-2 px-2 md:px-3 rounded-sm text-center bg-[#00BDCC] hover:bg-[#00BDAA] leading-4"
+              >
+                Upload images
+              </Link>
+
+              <p className="flex items-start flex-col mt-5 text-2xl w-full font-semibold">
+                Please upload some images
+                <span className="italic">or</span>
+              </p>
+              <a
+                href="https://drive.google.com/file/d/14JVNk30jne4F3qbSaVRlj609O79to7ya/view?usp=sharing"
+                target="_blank"
+                className="text-xl text-blue-600 underline underline-offset-2"
+              >
+                See the demo video
+              </a>
+            </div>
           )}
         </ul>
       </SortableList>

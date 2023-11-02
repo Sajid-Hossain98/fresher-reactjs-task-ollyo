@@ -7,7 +7,7 @@ const Layout = () => {
     <main className="h-screen bg-slate-400 grid place-items-center overflow-hidden">
       <Link to="/">
         <img
-          className="h-8 md:h-16 w-full"
+          className="h-8 md:h-16 w-full object-cover"
           src="./ollyo-logo-landscape.png"
           alt="Ollyo"
         />
